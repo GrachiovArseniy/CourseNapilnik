@@ -14,22 +14,16 @@ namespace Task_2
             _warehouse = warehouse;
         }
 
+        public IReadOnlyList<IReadOnlyCell> OrderedGoods => _orderedGoods;
+
         public void Add(Good good, int count)
         {
             _orderedGoods.Add(_warehouse.Export(good, count));
         }
 
-        public void WriteAllGoods()
-        {
-            foreach (var good in _orderedGoods)
-            {
-                Console.WriteLine($"{good.Good} - {good.Count}");
-            }
-        }
-
         public Order Order()
         {
-            return new Order("???");
+            return new Order("Random string");
         }
     }
 }

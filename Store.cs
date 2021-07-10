@@ -10,7 +10,7 @@ namespace Task_2
         private readonly Good _iPhone12 = new Good("Iphone 12");
         private readonly Good _iPhone11 = new Good("Iphone 11");
 
-        private readonly Warehouse _warehouse = new Warehouse(100);
+        private readonly Warehouse _warehouse = new Warehouse();
 
         private Shop _shop;
 
@@ -21,13 +21,19 @@ namespace Task_2
             _warehouse.Delive(_iPhone12, 10);
             _warehouse.Delive(_iPhone11, 1);
 
-            _warehouse.WriteAllGoods();
+            foreach (var cell in _warehouse.StockGoods)
+            {
+                Console.WriteLine($"{cell.Good} - {cell.Count}");
+            }
 
             Cart cart = _shop.Cart();
             cart.Add(_iPhone12, 4);
             cart.Add(_iPhone11, 3);
 
-            cart.WriteAllGoods();
+            foreach (var good in cart.OrderedGoods)
+            {
+                Console.WriteLine($"{good.Good} - {good.Count}");
+            }
 
             Console.WriteLine(cart.Order().Paylink);
         }

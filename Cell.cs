@@ -4,10 +4,15 @@ using System.Text;
 
 namespace Task_2
 {
-    internal class Cell
+    internal class Cell : IReadOnlyCell
     {
         public Cell(Good good, int count)
         {
+            if (count < 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(count));
+            }
+
             Good = good;
             Count = count;
         }
