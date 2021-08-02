@@ -1,8 +1,6 @@
 ﻿using System;
 using System.IO;
 using ExtensionMethods;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Chapter_2.Task_1
 {
