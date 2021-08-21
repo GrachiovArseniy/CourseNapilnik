@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using System.Collections.Generic;
+using System.Linq;
 
-namespace Task_2
+namespace Chapter_1.Task_2
 {
     internal class Cart
     {
@@ -18,7 +17,18 @@ namespace Task_2
 
         public void Add(Good good, int count)
         {
-            _orderedGoods.Add(_warehouse.Export(good, count));
+            Cell newCell = _warehouse.Export(good, count);
+
+            Cell cell = _orderedGoods.FirstOrDefault(cell => cell.Good == good);
+
+            if (cell == null)
+            {
+                _orderedGoods.Add(cell);
+            }
+            else
+            {
+                cell.Merge(newCell);
+            }
         }
 
         public Order Order()

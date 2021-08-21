@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
-namespace Task_2
+namespace Chapter_1.Task_2
 {
     internal class Warehouse
     {
@@ -29,16 +28,14 @@ namespace Task_2
 
         public Cell Export(Good good, int count)
         {
-            if (IsInWarehouse(good, count))
-            {
-                Cell cell = _stockGoods.FirstOrDefault(cell => cell.Good == good);
-                _stockGoods[_stockGoods.IndexOf(cell)].Count -= count;
-                return new Cell(good, count);
-            }
-            else
+            if (IsInWarehouse(good, count) == false)
             {
                 throw new InvalidOperationException();
             }
+
+            Cell cell = _stockGoods.FirstOrDefault(cell => cell.Good == good);
+            _stockGoods[_stockGoods.IndexOf(cell)].Count -= count;
+            return new Cell(good, count);
         }
 
         public bool IsInWarehouse(Good good, int count)

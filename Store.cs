@@ -1,11 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using UnityEngine;
 
-namespace Task_2
+// using UnityEngine;
+namespace Chapter_1.Task_2
 {
-    internal class Store : MonoBehaviour
+    internal class Store /*: MonoBehaviour*/
     {
         private readonly Good _iPhone12 = new Good("Iphone 12");
         private readonly Good _iPhone11 = new Good("Iphone 11");
