@@ -1,9 +1,8 @@
 ﻿using System;
 
-// using UnityEngine;
 namespace Chapter_1.Task_2
 {
-    internal class Store /*: MonoBehaviour*/
+    internal class Store
     {
         private readonly Good _iPhone12 = new Good("Iphone 12");
         private readonly Good _iPhone11 = new Good("Iphone 11");
